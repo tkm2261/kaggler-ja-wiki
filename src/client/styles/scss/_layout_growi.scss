@@ -1,0 +1,27 @@
+.growi.main-container {
+  .content-main {
+    padding: 0;
+  }
+
+  .liker-and-seenusers {
+    height: 42px; // .nav height
+    border-bottom: 1px solid $border;
+
+    .liker-user-count,
+    .seen-user-count {
+      font-weight: bold;
+    }
+  }
+
+  .revision-toc {
+    &.affix {
+      top: calc(46px + 5px);
+      min-width: calc(#{100 / 12 * 2%} - #{$grid-gutter-width}); // width of 2column - padding
+      margin-top: 5px;
+    }
+
+    .revision-toc-content {
+      padding: 0;
+    }
+  }
+}

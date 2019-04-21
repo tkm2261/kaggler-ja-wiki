@@ -1,0 +1,129 @@
+.kibela.main-container {
+  /* Comment section */
+  %comment-section {
+    position: relative;
+    padding: 1em;
+    margin-bottom: 1em; // screen-xs
+    margin-left: 4.5em;
+    @media (max-width: $screen-xs) {
+      margin-left: 3.5em;
+    } // speech balloon
+    &:before {
+      position: absolute;
+      top: 1.5em;
+      left: -1em;
+      display: block;
+      width: 0;
+      width: 0; // screen-xs
+      height: 0;
+      content: '';
+      border-top: 20px solid transparent;
+      border-right: 20px solid #e6e9ec;
+      border-bottom: 20px solid transparent;
+      border-left: 20px solid transparent;
+      border-left-width: 0;
+      @media (max-width: $screen-xs) {
+        top: 1em;
+      }
+    }
+  }
+  %picture {
+    float: left;
+    width: 3em;
+    height: 3em; // screen-xs
+    margin-top: 0.8em;
+    @media (max-width: $screen-xs) {
+      width: 2em;
+      height: 2em;
+    }
+  }
+  .page-comments-row {
+    margin: 10px 0px;
+  }
+  .page-comments {
+    h4 {
+      margin-bottom: 1em;
+    }
+  }
+  .page-comment {
+    position: relative; // ユーザー名
+    .page-comment-creator {
+      margin-top: -0.5em;
+      margin-bottom: 0.5em;
+      font-weight: bold;
+    } // ユーザーアイコン
+    .picture {
+      @extend %picture;
+    } // コメントセクション
+    .page-comment-main {
+      @extend %comment-section;
+      background: #e6e9ec;
+      border-radius: 0.35em;
+    } // コメント本文
+    .page-comment-body {
+      margin-bottom: 0.5em;
+      word-wrap: break-word;
+    }
+    .page-comment-meta {
+      font-size: 0.9em;
+      color: #e5ecf1;
+      text-align: right;
+      * {
+        vertical-align: 25%;
+      }
+    }
+  } // show when hover
+  .page-comment-main:hover > .page-comment-control {
+    display: block;
+  } // display cheatsheet for comment form only
+  .comment-form {
+    position: relative;
+    margin-top: 2em; // user icon
+    border: none;
+    .editor-cheatsheet {
+      display: none;
+    }
+    .picture {
+      @extend %picture;
+    } // seciton
+    .comment-form-main {
+      @extend %comment-section;
+      background: #e6e9ec;
+      border-radius: 0.35em;
+      .CodeMirror {
+        border: 0px;
+      }
+    } // textarea
+    .comment-write {
+      margin-bottom: 0.5em;
+    }
+    .comment-form-comment {
+      height: 80px;
+      &:focus,
+      &:not(:invalid) {
+        height: 180px;
+        transition: height 0.2s ease-out;
+      }
+    }
+    .CodeMirror {
+      border: 0px !important;
+    }
+    #page-editor {
+      @media (max-width: $screen-sm) {
+        .desc-long {
+          display: none;
+        }
+      }
+    }
+    @media screen and (max-width: 1400px) {
+      .desc-long {
+        display: none;
+      }
+      @media screen and (max-width: 570px) {
+        .gfm-cheatsheet {
+          display: none;
+        }
+      }
+    }
+  }
+}

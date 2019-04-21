@@ -1,11 +1,334 @@
-CHANGES
-========
+# CHANGES
 
-## 3.1.12-RC
+## 3.4.4-RC
+
+* 
+
+## 3.4.3
+
+* Improvement: Add 'antarctic' theme
+* Support Apply eslint-config-airbnb based rules
+* Support Apply prettier and stylelint
+* Support: Upgrade libs
+    * csrf
+    * escape-string-regexp
+    * eslint
+    * express-session
+    * googleapis
+    * growi-commons
+    * i18next
+    * mini-css-extract-plugin
+    * nodemailer
+    * penpal
+    * react-i18next
+    * string-width
+
+## 3.4.2
+
+* Fix: Nofitication to Slack doesn't work
+    * Introduced by 3.4.0
+
+## 3.4.1
+
+* Fix: "Cannot find module 'stream-to-promise'" occured when build client with `FILE_UPLOAD=local`
+
+## 3.4.0
+
+### BREAKING CHANGES
+
+None.
+
+Upgrading Guide: https://docs.growi.org/guide/upgrading/34x.html
+
+### Updates
+
+* Improvement: Restrict to access attachments when the user is not allowed to see page
+* Improvement: Show fans and visitors of page
+* Improvement: Full text search tokenizing
+* Improvement: Markdown comment on Crowi Classic Layout
+* Fix: Profile image is not displayed when `FILE_UPLOAD=mongodb`
+* Fix: Posting comment doesn't work under Crowi Classic Layout
+    * Introduced by 3.1.5
+* Fix: HackMD doesn't work when `siteUrl` ends with slash
+* Fix: Ensure not to be able to move/duplicate page to the path which has trailing slash
+* Support: Launch with Node.js v10
+* Support: Launch with MongoDB 3.6
+* Support: Launch with Elasticsearch 6.6
+* Support: Upgrade libs
+    * bootstrap-sass
+    * browser-sync
+    * react
+    * react-dom
+
+
+## 3.3.10
+
+* Feature: PlantUML and Blockdiag on presentation
+* Improvement: Render slides of presentation with GrowiRenderer
+* Fix: Unportalizing doesn't work
+* Support: Use mini-css-extract-plugin instead of extract extract-text-webpack-plugin
+* Support: Use terser-webpack-plugin instead of uglifyjs-webpack-plugin
+* Support: Upgrade libs
+    * csv-to-markdown-table
+    * file-loader
+    * googleapis
+    * i18next-browser-languagedetector
+    * mocha
+    * react-waypoint
+    * webpack
+    * webpack-assets-manifest
+    * webpack-cli
+    * webpack-merge
+
+## 3.3.9
+
+* Fix: Import from Qiita:Team doesn't work
+    * Introduced by 3.3.0
+* Fix: Typeahead shows autocomplete wrongly
+    * Introduced by 3.3.8
+* Support: Upgrade libs
+    * react-bootstrap-typeahead
+
+## 3.3.8
+
+* Fix: Move/Duplicate don't work
+    * Introduced by 3.3.7
+* Fix: Server doesn't respond when root page is restricted
+* Support: Upgrade libs
+    * react
+    * react-bootstrap-typeahead
+
+## 3.3.7
+
+* Feature: Editor toolbar
+* Feature: `prefix:/path` searching syntax to filter with page path prefix
+* Feature: Add an option to filter only children to searching box of navbar
+* Improvement: Suggest page path when moving/duplicating/searching
+* Fix: Anonymous users couldn't search
+    * Introduced by 3.3.6
+* I18n: Searching help
+* Support: Prepare to suppoert Node.js v10
+* Support: Upgrade libs
+    * node-sass
+
+## 3.3.6
+
+* Improvement: Site URL settings must be set
+* Improvement: Site URL settings can be set with environment variable
+* Fix: "Anyone with the link" ACL doesn't work correctly
+    * Introduced by 3.3.0
+* Fix: Related pages list of /admin/user-group-detail/xxx doesn't show anything
+    * Introduced by 3.3.0
+* Fix: Diff of revision contents doesn't appeared when notifing with slack
+* Fix: NPE occured on /admin/security when Crowi Classic Auth Mechanism is set
+* Fix: Coudn't render Timing Diagram with PlantUML
+* I18n: Cheatsheet for editor
+* I18n: Some admin pages
+* Support: Upgrade libs
+    * diff
+    * markdown-it-plantuml
+    * mongoose
+    * nodemailer
+    * mongoose-gridfs
+    * sinon
+    * sinon-chai
+
+## 3.3.5 (Missing number)
+
+## 3.3.4
+
+* Improvement: SAML configuration with environment variables
+* Improvement: Upload file with pasting from clipboard
+* Fix: `/_api/revisions.get` doesn't populate author data correctly
+* Fix: Wrong OAuth callback url are shown at admin page
+* Fix: Connecting to MongoDB failed when processing migration
+* Support: Get ready to use new config management system
+
+## 3.3.3
+
+* Feature: Show line numbers to a code block
+* Feature: Bulk update the scope of descendant pages when create/update page
+* Improvement: The scope of ascendant page will be retrieved and set to controls in advance when creating a new page
+* Fix: Pages that is restricted by groups couldn't be shown in search result page
+* Fix: Pages order in search result page was wrong
+* Fix: Guest user can't search
+* Fix: Possibility that ExternalAccount deletion processing selects incorrect data
+* Support: Upgrade libs
+    * bootstrap-sass
+    * i18next
+    * migrate-mongo
+    * string-width
+
+## 3.3.2
+
+* Fix: Specified Group ACL is not persisted correctly
+    * Introduced by 3.3.0
+
+## 3.3.1
+
+* Feature: NO_CDN Mode
+* Feature: Add option to show/hide restricted pages in list
+* Feature: MongoDB GridFS quota
+* Improvement: Refactor Access Control
+* Improvement: Checkbox behavior of task list
+* Improvement: Fixed search input on search result page
+* Improvement: Add 'christmas' theme
+* Improvement: Select default language of new users
+* Fix: Hide restricted pages contents in timeline
+* Support: Upgrade libs
+    * googleapis
+    * passport-saml
+
+## 3.3.0 (Missing number)
+
+## 3.2.10
+
+* Fix: Pages in trash are available to create
+* Fix: Couldn't create portal page under Crowi Classic Behavior
+* Fix: Table tag in Timeline/SearchResult missed border and BS3 styles
+* I18n: Installer
+
+
+## 3.2.9
+
+* Feature: Attachment Storing to MongoDB GridFS
+* Fix: row/col moving of Spreadsheet like GUI (Handsontable) doesn't work
+* Fix: Emoji AutoComplete dialog pops up at wrong position
+* Support: Upgrade libs
+    * codemirror
+    * react-codemirror2
+
+## 3.2.8
+
+* Improvement: Add an option to use email for account link when using SAML federation
+* Fix: Editor layout is sometimes broken
+* Fix: Normalize table data for Spreadsheet like GUI (Handsontable) when import
+* Support: Improve development environment
+* Support: Upgrade libs
+    * googleapis
+    * react-dropzone
+
+## 3.2.7
+
+* Feature: Import CSV/TSV/HTML table on Spreadsheet like GUI (Handsontable)
+* Fix: Pasting table data copied from Excel includes unnecessary line breaks
+* Fix: Page break Preset 1 for Presentation mode is broken
+* Fix: Login Form when LDAP login failed caused 500 Internal Server Error
+
+## 3.2.6
+
+* Feature: Add select alignment buttons of Spreadsheet like GUI (Handsontable)
+* Improvement: Shrink the rows that have no diff of revision history page
+* Fix: Login form rejects weak password
+* Fix: An error occured by uploading attachment file when the page is not exists
+    * Introduced by 2.3.5
+* Support: Upgrade libs
+    * i18next-express-middleware
+    * i18next-node-fs-backend
+    * i18next-sprintf-postprocessor
+
+## 3.2.5
+
+* Improvement: Expandable Spreadsheet like GUI (Handsontable)
+* Improvement: Move/Resize rows/columns of Spreadsheet like GUI (Handsontable)
+* Improvement: Prevent XSS of New Page modal
+* Fix: Recent Created tab of user home shows wrong page list
+    * Introduced by 3.2.4
+* Support: Upgrade libs
+    * @handsontable/react
+    * handsontable
+    * metismenu
+    * sinon
+
+## 3.2.4
+
+* Feature: Edit table with Spreadsheet like GUI (Handsontable)
+* Feature: Paging recent created in users home
+* Improvement: Specify certificate for SAML Authentication
+* Fix: SAML Authentication didn't work
+    * Introduced by 3.2.2
+* Fix: Failed to create new page with title which includes RegEx special characters
+* Fix: Preventing XSS Settings are not applied in default
+    * Introduced by 3.1.12
+* Support: Mongoose migration mechanism
+* Support: Upgrade libs
+    * googleapis
+    * mocha
+    * mongoose
+    * mongoose-paginate
+    * mongoose-unique-validator
+    * multer
+
+## 3.2.3
+
+* Feature: Kibela like layout
+* Improvement: Custom newpage separator for presentation view
+* Support: Shrink image size for themes which recently added
+
+## 3.2.2
+
+* Feature: SAML Authentication (SSO)
+* Improvement: Add 'wood' theme
+* Improvement: Add 'halloween' theme
+* Improvement: Add 'island' theme
+* Fix: Sending email function doesn't work
+* Support Upgrade libs
+    * style-loader
+
+## 3.2.1
+
+* Feature: Import data from esa.io
+* Feature: Import data from Qiita:Team
+* Feature: Add the endpoint for health check
+* Improvement: Adjust styles when printing
+* Fix: Renaming page doesn't work if the page was saved with shortcut
+* Support: Refactor directory structure
+* Support Upgrade libs
+    * file-loader
+    * googleapis
+    * postcss-loader
+    * sass-loader
+    * style-loader
+
+## 3.2.0
+
+* Feature: HackMD integration so that user will be able to simultaneously edit with multiple people
+* Feature: Login with Twitter Account (OAuth)
+* Fix: The Initial scroll position is wrong when reloading the page
+
+## 3.1.14
+
+* Improvement: Show help for header search box
+* Improvement: Add Markdown Cheatsheet to Editor component
+* Fix: Couldn't delete page completely from search result page
+* Fix: Tabs of trash page are broken
+
+## 3.1.13
+
+* Feature: Global Notification
+* Feature: Send Global Notification with E-mail
+* Improvement: Add attribute mappings for email to LDAP settings
+* Support: Upgrade libs
+    * autoprefixer
+    * css-loader
+    * method-override
+    * optimize-css-assets-webpack-plugin
+    * react
+    * react-bootstrap-typeahead
+    * react-dom
+
+
+## 3.1.12
 
 * Feature: Add XSS Settings
+* Feature: Notify to Slack when comment
+* Improvement: Prevent XSS in various situations
+* Improvement: Show forbidden message when the user accesses to ungranted page
+* Improvement: Add overlay styles for pasting file to comment form
 * Fix: Omit unnecessary css link
     * Introduced by 3.1.10
+* Fix: Invitation mail do not be sent
+* Fix: Edit template button on New Page modal doesn't work
 
 ## 3.1.11
 
@@ -21,8 +344,8 @@ CHANGES
 
 ## 3.1.9
 
-* Feature: Login with Google Account
-* Feature: Login with GitHub Account
+* Feature: Login with Google Account (OAuth)
+* Feature: Login with GitHub Account (OAuth)
 * Feature: Attach files in Comment
 * Improvement: Write comment with CodeMirror Editor
 * Improvement: Post comment with `Ctrl-Enter`

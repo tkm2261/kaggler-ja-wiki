@@ -1,0 +1,71 @@
+.page-list {
+  .page-list-container {
+    font-size: 15px;
+    line-height: 1.6em;
+  }
+
+  .page-list-ul {
+    padding-left: 0;
+    margin: 0;
+
+    > li {
+      margin: 0;
+      list-style: none;
+
+      .picture {
+        width: 16px;
+        height: 16px;
+      }
+
+      > a {
+        display: inline;
+        padding: 0 4px;
+        color: inherit;
+      }
+
+      > span.page-list-meta {
+        font-size: 0.9em;
+
+        > span {
+          margin-right: 0.3rem;
+        }
+
+        i {
+          margin-right: 2px;
+        }
+      }
+    }
+
+    // after second level indent
+    .page-list-ul {
+      padding-left: 2rem;
+    }
+
+    // override .page-list-ul
+    &.page-list-ul-flat {
+      padding-left: 0;
+    }
+  }
+}
+
+.popular-page-high {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: #e80000;
+}
+
+.popular-page-mid {
+  font-weight: bold;
+  color: #e47800;
+}
+
+.popular-page-low {
+  color: #ab7c7c;
+}
+
+.panel-timeline {
+  border: 1px solid #ccc;
+  > .panel-heading {
+    background-color: #ccc;
+  }
+}

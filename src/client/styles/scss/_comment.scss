@@ -1,0 +1,47 @@
+.main-container {
+  .page-comment-main {
+    // delete button
+    .page-comment-control {
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: none; // default hidden
+    }
+  }
+
+  // modal
+  .page-comment-delete-modal .modal-content {
+    .modal-body {
+      .comment-body {
+        max-height: 13em;
+        // scrollable
+        overflow-y: auto;
+      }
+    }
+  }
+}
+
+.main-container {
+  .page-comments {
+    .page-comments-list-toggle-newer,
+    .page-comments-list-toggle-older {
+      display: block;
+      margin: 8px;
+      font-size: 0.9em;
+      color: #999;
+      text-align: center;
+    }
+
+    // older comments
+    .page-comments-list-older .page-comment {
+    }
+    // newer comments
+    .page-comments-list-newer .page-comment {
+      opacity: 0.7;
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}
