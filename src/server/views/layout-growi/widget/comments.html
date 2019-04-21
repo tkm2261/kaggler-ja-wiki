@@ -1,0 +1,15 @@
+<div class="page-comments-row row hidden-print">
+
+  <div class="page-comments col-lg-7 col-md-9">
+
+    <h4><i class="icon-fw icon-bubbles"></i> Comments</h4>
+
+    <div class="page-comments-list" id="page-comments-list"></div>
+
+    {% if page and not page.isDeleted() %}
+    <div id="page-comment-write"></div>
+    {% endif %}
+
+  </div>
+
+</div>

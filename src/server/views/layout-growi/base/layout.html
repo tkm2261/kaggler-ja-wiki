@@ -1,0 +1,41 @@
+{% extends '../../layout/layout.html' %}
+
+{% block html_additional_headers %}
+  {% parent %}
+  {{ cdnScriptTag('highlight-addons') }}
+{% endblock %}
+
+{% block head_warn %}
+  {% include '../../widget/alert_siteurl_undefined.html' %}
+{% endblock %}
+
+{% block layout_main %}
+<div class="container-fluid">
+
+  <div class="row bg-title hidden-print">
+    <div class="col-xs-12 header-container">
+      {% block content_header %}
+      {% endblock %}
+    </div>
+  </div><!-- /.bg-title -->
+
+  <div class="row">
+    <div id="main" class="main m-t-15 col-md-12 {% if page %}{{ css.grant(page) }}{% endif %} {% block main_css_class %}{% endblock %}">
+      {% block content_main_before %}
+      {% endblock %}
+
+      {% block content_main %}
+      {% endblock content_main %}
+
+      {% block content_main_after %}
+      {% endblock %}
+    </div>
+
+  </div>
+
+</div><!-- /.container-fluid -->
+
+<footer class="footer">
+  {% include '../../widget/system-version.html' %}
+</footer>
+{% endblock %} {# layout_main #}

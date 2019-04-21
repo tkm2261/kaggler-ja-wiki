@@ -2,51 +2,60 @@
  * @author: Yuki Takei <yuki@weseek.co.jp>
  */
 
-const helpers = require('./helpers');
-
 /**
  * Webpack Plugins
  */
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+
+const helpers = require('../src/lib/util/helpers');
 
 /**
  * Webpack Constants
  */
-const ANALYZE = process.env.ANALYZE;
+const { ANALYZE } = process.env;
 
 module.exports = require('./webpack.common')({
   mode: 'production',
   devtool: undefined,
   output: {
     filename: '[name].[chunkhash].bundle.js',
-    chunkFilename: '[name].[chunkhash].chunk.js'
+    chunkFilename: '[name].[chunkhash].chunk.js',
   },
   module: {
     rules: [
       {
-        test: /\.scss$/,
-        use: ExtractTextPlugin.extract({
-          use: [
-            'css-loader',
-            { loader: 'postcss-loader', options: {
+        test: /\.(css|scss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
               sourceMap: false,
-              plugins: (loader) => [
-                require('autoprefixer')()
-              ]
-            } },
-            'sass-loader'
-          ]
-        }),
-        include: [helpers.root('resource/styles/scss')]
-      }
-    ]
+              plugins: (loader) => {
+                return [
+                  require('autoprefixer')(),
+                ];
+              },
+            },
+          },
+          'sass-loader',
+        ],
+        exclude: [helpers.root('src/client/js/legacy')],
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+        include: [helpers.root('src/client/js/legacy')],
+      },
+    ],
   },
   plugins: [
 
-    new ExtractTextPlugin({
+    new MiniCssExtractPlugin({
       filename: '[name].[hash].css',
     }),
 
@@ -59,11 +68,8 @@ module.exports = require('./webpack.common')({
   ],
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
-      }),
-      new OptimizeCSSAssetsPlugin({})
+      new TerserPlugin({}),
+      new OptimizeCSSAssetsPlugin({}),
     ],
   },
 });

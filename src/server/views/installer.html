@@ -1,0 +1,59 @@
+{% extends 'layout/layout.html' %}
+
+{% block html_base_css %}installer nologin{% endblock %}
+
+{% block html_title %}{{ customTitle(t('installer.setup')) }}{% endblock %}
+
+{#
+ # Remove default contents
+ #}
+{% block html_head_loading_legacy %}
+{% endblock %}
+{% block html_head_loading_app %}
+{% endblock %}
+{% block layout_head_nav %}
+{% endblock %}
+{% block sidebar %}
+{% endblock %}
+
+{% block html_additional_headers %}
+  {% parent %}
+  <script src="{{ webpack_asset('js/installer.js') }}" defer></script>
+{% endblock %}
+
+{% block layout_main %}
+
+<div class="main container-fluid">
+
+  <div class="row">
+
+    <div class="login-header col-sm-offset-4 col-sm-4">
+      <div class="logo">{% include 'widget/logo.html' %}</div>
+      <h1>GROWI</h1>
+
+      <div class="login-form-errors">
+        {% if req.form.errors.length > 0 %}
+        <div class="alert alert-danger">
+          <ul>
+          {% for error in req.form.errors %}
+            <li>{{ error }}</li>
+          {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <div id='installer-form'
+      data-user-name="{{ req.body.registerForm.username }}"
+      data-name="{{ googleName|default(req.body.registerForm.name) }}"
+      data-email="{{ googleEmail|default(req.body.registerForm.email) }}"
+      data-csrf="{{ csrf() }}">
+    </div>
+
+  </div>{# /.row #}
+
+</div>{# /.main #}
+
+{% endblock %}
+

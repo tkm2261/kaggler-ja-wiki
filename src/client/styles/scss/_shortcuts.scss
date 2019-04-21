@@ -1,0 +1,68 @@
+#shortcuts-modal {
+  // more than tablet size
+  @media (min-width: $screen-sm-min) {
+    .modal-dialog {
+      width: 750px;
+    }
+  }
+  // less than tablet size
+  @media (max-width: $screen-xs-max) {
+    table {
+      table-layout: fixed;
+    }
+  }
+
+  h3 {
+    margin-bottom: 1em;
+  }
+
+  table {
+    th {
+      vertical-align: middle;
+    }
+    td {
+      min-width: 170px;
+    }
+  }
+
+  // see http://coliss.com/articles/build-websites/operation/css/css-apple-keyboard-style-by-nrjmadan.html
+  .key {
+    /*Box Properties*/
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    margin: 0px 4px;
+    /*Text Properties*/
+    font: 18px/36px Helvetica, serif;
+    color: #666;
+    text-align: center;
+    text-transform: uppercase;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.5);
+    /* SVG Properties*/
+    polygon {
+      fill: #666;
+    }
+
+    &.key-longer {
+      width: 64px;
+    }
+    &.key-long {
+      width: 72px;
+    }
+  }
+
+  .dl-horizontal {
+    dt {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      // width: 180px;
+      height: 41px;
+    }
+    // dd {
+    //   margin-left: 190px;
+    // }
+  }
+}
